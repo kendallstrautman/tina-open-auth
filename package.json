@@ -15,5 +15,9 @@
 		"react-tinacms-github": "^0.1.0-canary3.0",
 		"styled-components": "^5.1.0",
 		"tinacms": "^0.19.0-alpha.2"
+	},
+	"devDependencies": {
+		"@types/node": "^13.13.1",
+		"typescript": "^3.8.3"
 	}
 }
