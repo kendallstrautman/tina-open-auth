@@ -6,7 +6,7 @@ import { getGithubPreviewProps, parseJson } from 'next-tinacms-github'
 import { useGithubJsonForm } from 'react-tinacms-github'
 import { GetStaticProps } from 'next'
 
-export default function Home({ file }) {
+export default function Home({ file, preview }) {
   const formOptions = {
     label: 'Home Page',
     fields: [{ name: 'title', component: 'text' }],
@@ -135,6 +135,7 @@ export default function Home({ file }) {
           margin: 0;
           line-height: 1.15;
           font-size: 4rem;
+          color: ${preview && 'red'};
         }
 
         .title,
