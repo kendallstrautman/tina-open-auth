@@ -1,0 +1,13 @@
+{
+  "env": {
+    "GITHUB_CLIENT_ID": "94e7e416f2b98f367c98",
+    "GITHUB_CLIENT_SECRET": "@github_client_secret"
+  },
+  "build": {
+    "env": {
+      "GITHUB_CLIENT_ID": "94e7e416f2b98f367c98",
+      "REPO_FULL_NAME": "username/repo-name",
+      "BASE_BRANCH": "master"
+    }
+  }
+}
