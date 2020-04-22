@@ -1,7 +1,7 @@
 {
   "env": {
     "GITHUB_CLIENT_ID": "94e7e416f2b98f367c98",
-    "GITHUB_CLIENT_SECRET": "@github_client_secret"
+    "GITHUB_CLIENT_SECRET": "@tina_open_auth_github_client_secret"
   },
   "build": {
     "env": {
