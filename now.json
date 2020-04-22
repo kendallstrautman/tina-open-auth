@@ -4,7 +4,7 @@
   },
   "build": {
     "env": {
-      "GITHUB_CLIENT_ID": "94e7e416f2b98f367c98",
+      "GITHUB_CLIENT_ID": "9e9741f5065dad3b7b75",
       "REPO_FULL_NAME": "kendallstrautman/tina-open-auth",
       "BASE_BRANCH": "master"
     }
