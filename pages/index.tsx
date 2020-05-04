@@ -3,7 +3,10 @@ import Head from 'next/head'
  ** Import helpers and GetStaticProps type
  */
 import { getGithubPreviewProps, parseJson } from 'next-tinacms-github'
-import { useGithubJsonForm } from 'react-tinacms-github'
+import {
+  useGithubJsonForm,
+  useGithubToolbarPlugins,
+} from 'react-tinacms-github'
 import { GetStaticProps } from 'next'
 
 export default function Home({ file, preview }) {
@@ -16,6 +19,8 @@ export default function Home({ file, preview }) {
    ** Register a JSON Tina Form
    */
   const [data, form] = useGithubJsonForm(file, formOptions)
+
+  useGithubToolbarPlugins()
 
   return (
     <div className="container">
