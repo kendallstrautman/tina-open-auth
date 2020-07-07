@@ -7,6 +7,7 @@ import {
   useGithubJsonForm,
   useGithubToolbarPlugins,
 } from 'react-tinacms-github'
+import { usePlugin } from 'tinacms'
 import { GetStaticProps } from 'next'
 
 export default function Home({ file, preview }) {
@@ -19,6 +20,7 @@ export default function Home({ file, preview }) {
    ** Register a JSON Tina Form
    */
   const [data, form] = useGithubJsonForm(file, formOptions)
+  usePlugin(form)
 
   useGithubToolbarPlugins()
 
