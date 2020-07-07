@@ -7,6 +7,7 @@ import {
   useGithubJsonForm,
   useGithubToolbarPlugins,
 } from 'react-tinacms-github'
+import { usePlugin } from 'tinacms'
 import { GetStaticProps } from 'next'
 
 export default function Home({ file, preview }) {
