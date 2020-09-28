@@ -10,12 +10,12 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "next": "9.4.4",
-    "next-tinacms-github": "^0.24.0",
+    "next-tinacms-github": "^0.25.0-alpha.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "react-tinacms-github": "^0.24.0",
+    "react-tinacms-github": "^0.31.0-alpha.4",
     "styled-components": "^5.1.0",
-    "tinacms": "^0.24.0"
+    "tinacms": "^0.31.0-alpha.4"
   },
   "devDependencies": {
     "@types/node": "^13.13.1",
