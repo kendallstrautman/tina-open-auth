@@ -1,12 +1,24 @@
 import App from 'next/app'
 import { TinaCMS, TinaProvider } from 'tinacms'
-import { GithubClient, TinacmsGithubProvider } from 'react-tinacms-github'
+import {
+  GithubClient,
+  GithubMediaStore,
+  TinacmsGithubProvider,
+} from 'react-tinacms-github'
 
 export default class Site extends App {
   cms: TinaCMS
 
   constructor(props) {
     super(props)
+
+    const github = new GithubClient({
+      proxy: '/api/proxy-github',
+      authCallbackRoute: '/api/create-github-access-token',
+      clientId: process.env.GITHUB_CLIENT_ID,
+      baseRepoFullName: process.env.REPO_FULL_NAME, // e.g: tinacms/tinacms.org,
+    })
+
     /**
      * 1. Create the TinaCMS instance
      */
@@ -16,15 +28,14 @@ export default class Site extends App {
         /**
          * 2. Register the GithubClient
          */
-        github: new GithubClient({
-          proxy: '/api/proxy-github',
-          authCallbackRoute: '/api/create-github-access-token',
-          clientId: process.env.GITHUB_CLIENT_ID,
-          baseRepoFullName: process.env.REPO_FULL_NAME, // e.g: tinacms/tinacms.org,
-        }),
+        github,
       },
       /**
-       * 3. Use the Sidebar and Toolbar
+       * 3. Register the Media Store
+       */
+      media: new GithubMediaStore(github),
+      /**
+       * 4. Use the Sidebar and Toolbar
        */
       sidebar: props.pageProps.preview,
       toolbar: props.pageProps.preview,
@@ -35,7 +46,7 @@ export default class Site extends App {
     const { Component, pageProps } = this.props
     return (
       /**
-       * 4. Wrap the page Component with the Tina and Github providers
+       * 5. Wrap the page Component with the Tina and Github providers
        */
       <TinaProvider cms={this.cms}>
         <TinacmsGithubProvider
@@ -44,7 +55,7 @@ export default class Site extends App {
           error={pageProps.error}
         >
           {/**
-           * 5. Add a button for entering Preview/Edit Mode
+           * 6. Add a button for entering Preview/Edit Mode
            */}
           <EditLink cms={this.cms} />
           <Component {...pageProps} />
