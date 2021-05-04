@@ -2,7 +2,11 @@ import Head from 'next/head'
 /*
  ** Import helpers and GetStaticProps type
  */
-import { getGithubPreviewProps, parseJson } from 'next-tinacms-github'
+import {
+  PreviewData,
+  getGithubPreviewProps,
+  parseJson,
+} from 'next-tinacms-github'
 import {
   useGithubJsonForm,
   useGithubToolbarPlugins,
@@ -239,7 +243,7 @@ export const getStaticProps: GetStaticProps = async function ({
 }) {
   if (preview) {
     return getGithubPreviewProps({
-      ...previewData,
+      ...(previewData as PreviewData<any>),
       fileRelativePath: 'content/home.json',
       parse: parseJson,
     })
